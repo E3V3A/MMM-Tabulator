@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<title>MMM Tabulator Demo</title>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="node_modules/jquery-ui-dist/jquery-ui.css">
+    <script src="node_modules/jquery.tabulator/dist/js/tabulator.js"></script>
+    <link type="text/css" rel="stylesheet" href="node_modules/jquery.tabulator/dist/css/tabulator.css">
+
+    <!--link rel="stylesheet" type="text/css" href="demo.css"-->
+</head>
+
+<body>
+  <!--h1>This is a heading</h1-->
+  <p>Some Flights</p>
+  <div id="flighttable"></div>
+  <p>Some more text</p>
+
+<script type="text/javascript">
+'use strict'
+
+Tabulator.extendExtension("format", "formatters", {
+    ft2mt:function(cell, formatterParams){              // Feet to Meters
+        return  (0.3048*cell.getValue()).toFixed(0);
+    },
+    kn2km:function(cell, formatterParams){              // Knots to Kilometers
+        return  (1.852*cell.getValue()).toFixed(0);
+    },
+    ep2time:function(cell, formatterParams){            // POSIX epoch to hh:mm:ss
+        let date = new Date(cell.getValue()); 
+        return date.toLocaleString('en-GB', { hour:'numeric', minute:'numeric', second:'numeric', hour12:false } );
+    },
+});
+
+$("#flighttable").tabulator({
+    height:205,                         // Set height of table, this enables the Virtual DOM and improves render speed
+    //layout:"fitColumns",              // Fit columns to width of table (optional)
+    //headerSort:false,                   // Disable header sorter
+    resizableColumns:false,             // Disable column resize
+    responsiveLayout:true,              // Enable responsive layouts
+    placeholder:"No Data Available",    // Display message to user on empty table
+    initialSort:[                       // Define the sort order:
+        {column:"altitude",     dir:"asc"},     // 1'st
+        //{column:"flight",     dir:"desc"},    // 2'nd
+        //{column:"bearing",    dir:"asc"},     // 3'rd
+    ],
+    columns:[
+        {title:"Flight",        field:"flight",         headerSort:false, sortable:false, responsive:0, align:"left"}, // , width:250},
+        {title:"CallSig",       field:"callsign",       headerSort:false, sortable:false, responsive:3},
+        {title:"From",          field:"origin",         headerSort:false, sortable:false, responsive:0},
+        {title:"To",            field:"destination",    headerSort:false, sortable:false, responsive:0},
+        {title:"Speed",         field:"speed",          headerSort:false, sortable:false, responsive:2, formatter:"kn2km"}, // [km/h]
+        {title:"Bearing",       field:"bearing",        headerSort:false, sortable:false, responsive:1},
+        {title:"Alt [m]",       field:"altitude",       headerSort:false, sortable:false, responsive:0, formatter:"ft2mt", align:"right", sorter:"number"},
+        //{title:"Alt [m]",       field:"altitude",       sortable:true,  responsive:0, align:"right", sorter:"number", mutateType:"data", mutator:"ft2met"},
+        // Additional items:
+        {title:"F24id",         field:"id",             headerSort:false, sortable:false, visible:false},
+        {title:"RegID",         field:"registration",   headerSort:false, sortable:false, visible:false},
+        {title:"Model",         field:"model",          headerSort:false, sortable:false, visible:true, responsive:1},
+        {title:"ModeS",         field:"modeSCode",      headerSort:false, sortable:false, visible:false},
+        {title:"Radar",         field:"radar",          headerSort:false, sortable:false, visible:false},
+        {title:"Lat",           field:"latitude",       headerSort:false, sortable:false, visible:false},
+        {title:"Lon",           field:"longitude",      headerSort:false, sortable:false, visible:false},
+
+        {title:"Time",          field:"timestamp",      headerSort:false, sortable:false, visible:true, responsive:1, formatter:"ep2time"},
+        {title:"RoC [ft/m]",    field:"climb",          headerSort:false, sortable:false, visible:false},
+        {title:"Squawk",        field:"squawk",         headerSort:false, sortable:false, visible:true, responsive:1}, // formatter:"sqCheck"},
+        {title:"isGND",         field:"ground",         headerSort:false, sortable:false, visible:false},
+        {title:"isGlider",      field:"glider",         headerSort:false, sortable:false, visible:false},
+    ],
+});
+
+var realData = [ 
+  { id: '106a7f9c',
+    timestamp: 1518520212,
+    registration: 'PK-CRD',
+    flight: 'SJ260',
+    callsign: 'SJY260',
+    origin: 'CGK',
+    destination: 'DPS',
+    latitude: -8.4156,
+    longitude: 115.0411,
+    altitude: 11525,
+    bearing: 132,
+    speed: 298,
+    climb: -1152,
+    model: 'B738',
+    modeSCode: '8A0651',
+    squawk: '2371',
+    radar: 'F-WRRA2',
+    ground: 0,
+    glider: 0 },
+  { id: '106a977f',
+    timestamp: 1518520211,
+    registration: 'A7-BAW',
+    flight: 'QR963',
+    callsign: 'QTR963',
+    origin: 'DPS',
+    destination: 'DOH',
+    latitude: -8.7491,
+    longitude: 115.1518,
+    altitude: 500,
+    bearing: 267,
+    speed: 172,
+    climb: 2560,
+    model: 'B77W',
+    modeSCode: '06A139',
+    squawk: '0000',
+    radar: 'F-WADD3',
+    ground: 0,
+    glider: 0 },
+  { id: '106a8939',
+    timestamp: 1518520210,
+    registration: 'PK-AZG',
+    flight: 'XT8449',
+    callsign: 'IDX8449',
+    origin: 'JOG',
+    destination: 'DPS',
+    latitude: -8.5856,
+    longitude: 115.1929,
+    altitude: 8100,
+    bearing: 127,
+    speed: 255,
+    climb: -1536,
+    model: 'A320',
+    modeSCode: '8A0418',
+    squawk: '4646',
+    radar: 'F-WARB2',
+    ground: 0,
+    glider: 0 },
+  { id: '106a9584',
+    timestamp: 1518520195,
+    registration: 'PK-LJT',
+    flight: 'JT955',
+    callsign: 'LNI955',
+    origin: 'LOP',
+    destination: 'DPS',
+    latitude: -8.7436,
+    longitude: 115.2869,
+    altitude: 2000,
+    bearing: 271,
+    speed: 137,
+    climb: -640,
+    model: 'B739',
+    modeSCode: '8A02EF',
+    squawk: '4632',
+    radar: 'F-WARB2',
+    ground: 0,
+    glider: 0 },
+  { id: '106a7cec',
+    timestamp: 1518520211,
+    registration: 'PK-LPK',
+    flight: 'JT40',
+    callsign: 'LNI040',
+    origin: 'CGK',
+    destination: 'DPS',
+    latitude: -8.6819,
+    longitude: 115.3313,
+    altitude: 4300,
+    bearing: 95,
+    speed: 255,
+    climb: -704,
+    model: 'B738',
+    modeSCode: '8A04BE',
+    squawk: '2455',
+    radar: 'F-WADD3',
+    ground: 0,
+    glider: 0 }
+ ];
+
+// Check for various File API support
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  // Great success! All the File APIs are supported.
+  console.log('All File APIs are supported!');
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+
+
+$("#flighttable").tabulator("setData", realData);
+
+$(window).resize(function(){
+  $("#flighttable").tabulator("redraw");
+});
+
+</script>
+<link rel="stylesheet" href="demo.css">
+
+</body>
+</html>

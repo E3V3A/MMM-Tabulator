@@ -1,0 +1,13 @@
+
+.body{
+  background-color:#FF0;
+}
+
+#flighttable{
+  width:600px; /* 100%  600px */ 
+  font-family:sans-serif;
+}
+
+/* Remove the sort arrows in table headers */
+.tabulator .tabulator-header .tabulator-col[data-sortable=true] .tabulator-col-title {width: 100%;}
+.tabulator-arrow {display: none;}
