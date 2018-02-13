@@ -1,8 +1,8 @@
 ## MagicMirror Module: Tabulator
 
-'MMM-Tabulator' is just a demonstration module for using the [Tabulator]() *npm* package on your MagicMirror. 
+'MMM-Tabulator' is just a demonstration module for using the [Tabulator](http://tabulator.info/) *npm* package on your MagicMirror. 
 *Tabulator* is a very nice tool for producing dynamic HTML tables from various sources, like JSON and XML etc. 
-However, although very well documented, the [examples]() are very hard to understand and implement in practice, 
+However, although very well documented, the [examples](http://tabulator.info/examples/) are very hard to understand and implement in practice, 
 for non-experts. 
 
 **Why should I use Tabulator?**
@@ -38,6 +38,12 @@ Manual Installation
 cd ~/MagicMirror/modules
 git clone https://github.com/E3V3A/MMM-Tabulator.git
 cd MMM-Tabulator
+
+chmod 755 install_deps.sh
+# To install: jquery, jquery-ui and tabulator do:
+./install_deps.sh
+
+# ToDo:
 #npm install
 ```
 
@@ -45,17 +51,15 @@ Easy Installation [ToDo]
 
 ```bash
 npm install mmm-tabulator
+```
 
-
-### Dependencies
+### Dependencies [WIP]
 
 This module depend on the following *npm* packages:
 
 ```text
-    [async](https://github.com/caolan/async)   - for Higher-order functions and common patterns for asynchronous code
-    [crypto]()  - `Built-in`: for MD5 file integrity checks and OpenSSL functions
-    [http]()    - `Built-in`: for HTTP requests and to make Node.js act as an HTTP server
-    [moment]()  - for time/date manipulations
+    [jquery]()  - for xxxx
+    [jquery-ui]()  - for xxxx
     [tabulator](https://github.com/olifolkerd/tabulator) - for an overkill use of JSON to HTML table generation
 ```
 
@@ -83,7 +87,9 @@ You can change this configuration later when you see this works:
 
 TBA
 
-### 
+### License
 
-TBA
+MIT
+
+
 
