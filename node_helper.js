@@ -45,7 +45,6 @@ module.exports = NodeHelper.create({
         throw err;
       }
 
-<<<<<<< HEAD
       this.sendSocketNotification("NEW_DATA_READ", data);
     });
   },
@@ -60,10 +59,9 @@ module.exports = NodeHelper.create({
       }, this.config.updateInterval);
     }
   }
-=======
-	}
->>>>>>> master
 });
+
+
 // This is too beautiful not to use!
 function degToDir(num) {
 	var val = Math.floor((num / 22.5) + 0.5);
