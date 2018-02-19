@@ -45,6 +45,7 @@ module.exports = NodeHelper.create({
         throw err;
       }
 
+<<<<<<< HEAD
       this.sendSocketNotification("NEW_DATA_READ", data);
     });
   },
@@ -59,10 +60,13 @@ module.exports = NodeHelper.create({
       }, this.config.updateInterval);
     }
   }
+=======
+	}
+>>>>>>> master
 });
-
-/*function degreesToDirection(num) {
+// This is too beautiful not to use!
+function degToDir(num) {
 	var val = Math.floor((num / 22.5) + 0.5);
 	var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
 	return arr[(val % 16)];
-}*/
+}
