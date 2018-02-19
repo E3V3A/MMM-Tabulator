@@ -1,3 +1,6 @@
+"use strict";
+
+
 /* -----------------------------------------------------------
  * Module:       MMM-Tabulator
  * File:         nodehelper.js
@@ -25,60 +28,40 @@
 
 const NodeHelper = require("node_helper");
 const moment = require("moment");
-const fs = require('fs');
-//const path = require('path');
+const fs = require("fs");
 
-const myfile = 'modules/MMM-Tabulator/demo.json'; //'modules/MMM-Tabulator/demo.json'
-
-/*
-const $ = require('jquery');
-//var $ = require('jquery/dist/jquery.min');
-global.jQuery = $;
-const jqueryui = require('jquery-ui-dist/jquery-ui.min');
-const jquerytabulator = require('jquery.tabulator');
-const tabulator = require('jquery.tabulator/dist/js/tabulator');
-*/
-
-/*
-var $ = require('jquery.min');
-//global.jQuery = $;
-window.jQuery = $;
-require('jquery-ui-dist/jquery-ui.min.js');
-require('jquery-ui-dist/jquery-ui.css');
-require('jquery.tabulator/dist/js/tabulator.min.js');
-require('jquery.tabulator/dist/css/tabulator.min.css');
-*/
 
 module.exports = NodeHelper.create({
 
-	start: function() {
-                this.started = false;
-                this.config = null;
-                console.log("Started MMM-Tabulator:node_helper.js");
-		//console.log("\nStarting module: " + this.name);
-		//console.log(`\nStarting module helper: ${this.name}`);
-	},
+  start: function () {
+    this.config = null;
+  },
 
-        readData: function(){
-                fs.readFile( myfile, 'utf8', (err, data) => {
-                        if (err) throw err;
-                        //console.log("\nRead file data: " + data);
-                        console.log("Read file data!");
-                        this.sendSocketNotification("DATA", data);
-                });
-        },
+  readData: function () {
+    const myfile = "modules/MMM-Tabulator/demo.json";
 
-	//socketNotificationReceived: function(notification, config) {
-        socketNotificationReceived: function(notification, payload) {
-                var self = this;
-                if (notification === "START") {
-                        this.config = payload;
-                        this.readData();
-                        setInterval(() => { this.readData(); }, this.config.updateInterval);
-                }
+    fs.readFile(myfile, "utf8", (err, data) => {
+      if (err) {
+        throw err;
+      }
 
-	}
+      this.sendSocketNotification("NEW_DATA_READ", data);
+    });
+  },
+
+  socketNotificationReceived: function (notification, payload) {
+    if (notification === "START_FETCHING_DATA") {
+      this.config = payload;
+      this.readData();
+
+      setInterval(() => {
+        this.readData();
+      }, this.config.updateInterval);
+    }
+  }
 });
+
+
 // This is too beautiful not to use!
 function degToDir(num) {
 	var val = Math.floor((num / 22.5) + 0.5);
