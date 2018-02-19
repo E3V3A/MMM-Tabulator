@@ -39,9 +39,6 @@ Module.register('MMM-Tabulator',{
 			this.file('node_modules/jquery/dist/jquery.min.js'),
 			this.file('node_modules/jquery-ui-dist/jquery-ui.min.js'),
 			this.file('node_modules/jquery.tabulator/dist/js/tabulator.js')
-//			'modules/MMM-Tabulator/node_modules/jquery/dist/jquery.min.js',
-//			'modules/MMM-Tabulator/node_modules/jquery-ui-dist/jquery-ui.min.js',
-//			'modules/MMM-Tabulator/node_modules/jquery.tabulator/dist/js/tabulator.js'
 		]
 	},
 
@@ -49,8 +46,6 @@ Module.register('MMM-Tabulator',{
 		return [
 			this.file('node_modules/jquery-ui-dist/jquery-ui.css'),
 			this.file('node_modules/jquery.tabulator/dist/css/tabulator.css'),
-//			"node_modules/jquery-ui-dist/jquery-ui.css",
-//			"node_modules/jquery.tabulator/dist/css/tabulator.css",
 			"MMM-Tabulator.css"
 		];
 	},
@@ -61,6 +56,12 @@ Module.register('MMM-Tabulator',{
 		this.sendSocketNotification('START', this.config);
 	},
 
+	// This is not really needed
+	loaded: function(callback) {
+		this.finishLoading();
+		console.log(this.name + ' is loaded!');
+		callback();
+	},
 
 	notificationReceived: function(notification, payload, sender) {
 		var self = this;

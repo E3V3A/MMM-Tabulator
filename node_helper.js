@@ -77,25 +77,11 @@ module.exports = NodeHelper.create({
                         setInterval(() => { this.readData(); }, this.config.updateInterval);
                 }
 
-/*			console.log("MMMT:node_helper.js Received notification: " + notification ); //, "\npayload: ", payload);
-			this.sendNotificationTest(this.anotherFunction());
-		}
-*/
 	}
-/*,
-	sendNotificationTest: function(payload) {
-		console.log("MMMT:node_helper.js Sending MMMT_PING with payload: " + payload );
-		this.sendSocketNotification("MMMT_PING", payload);
-	},
-
-	anotherFunction: function() {
-		return {date: new Date()};
-	}
-*/
 });
-
-/*function degreesToDirection(num) {
+// This is too beautiful not to use!
+function degToDir(num) {
 	var val = Math.floor((num / 22.5) + 0.5);
 	var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
 	return arr[(val % 16)];
-}*/
+}
