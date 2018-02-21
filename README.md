@@ -63,7 +63,7 @@ However, those may require other packages.
 
 ### Installation
 
-Manual Installation
+Manual Installation:
 
 ```bash
 cd ~/MagicMirror/modules
@@ -78,7 +78,8 @@ chmod 755 install_deps.sh
 #npm install
 ```
 
-Easy Installation [**ToDo**]
+Easy Installation [**ToDo**]:
+
 
 ```bash
 npm install mmm-tabulator
@@ -86,7 +87,7 @@ npm install mmm-tabulator
 
 ### Configuration 
 
-To configure the Tabulator for MM, you need to do the following
+To configure the Tabulator for MM, you need to do the following:
 
 * Add the Module to the global MM *config.js* 
 * Edit `node_helper.js` to select the correct JSON file or JSON input file:  
@@ -131,6 +132,7 @@ You can change this configuration later when you see that it works.
 
 `*` - **not yet implemented - ToDo!**
 
+---
 
 #### `Tabulator` configuration
 
@@ -167,39 +169,43 @@ For further details about configuring the many Tabulator options, see:
 
 ---
 
-### Bugs and ToDo's 
+#### Bugs and ToDo's
+
+:warning: If you provide your own JSON data, than what is provided in the `demo.json` file, 
+**it has to be in proper JSON format.** For some reason (bug #5) it does not accept loosely 
+formatted JSON.
+
 
 The following [issues](https://github.com/E3V3A/MMM-Tabulator/issues) need to be solved:
 
 - [ ] Fix `updateInterval` to use seconds (and not millisenconds)
-- [ ] Adjust the Tabulator height according to either: 
-      1. a config max value, `maxItems`, or if less,
-      2. the number of rows to be shown  
-     (See: `flightTable.tabulator({ height:205,`...)
+- [ ] Adjust the Tabulator height according to either:  
+  1. a config max value of `maxItems` or if less,  
+  2. the number of rows to be shown
 - [ ] Fix table width artifacts
 - [ ] Fix to accept dirty JSON import
 
 Please refer to the issue tracker for details and updates.
 
 
-### Other MM Modules using *Tabulator*:
+#### Other Modules using *Tabulator*:
 
-AFAIK, No one yet...
+*AFAIK, No one yet...*
 
 
-### Contribution
+#### Contribution
 
 Feel free to post issues and PR's related to this module.  
 For all other or general questions, please refer to the [MagicMirror Forum](https://forum.magicmirror.builders/).
 
-### Credits 
+#### Credits 
 
 Most grateful thanks to [Ray Wojciechowski](https://github.com/raywo) for sharing his   
 module develpment experince and thus helping me solve all my issues. Do check out his 
 many great MMM modules in his repository.
 
 
-### License 
+#### License 
 
 MIT 
 
