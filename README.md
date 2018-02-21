@@ -43,6 +43,23 @@ Screenshot of the `MMM-Tabulator` output:
 
 The flight JSON data shown, was provided by [FlightRadar24](https://www.flightradar24.com/). 
 
+---
+
+
+### Dependencies
+
+This module depend on the following *npm* packages:
+
+* [jquery](https://github.com/jquery/jquery)  - is a fast, small, and feature-rich JavaScript library
+* [jquery-ui](https://github.com/jquery/jquery-ui)  - for user interface interactions, effects, widgets, and themes
+* [tabulator](https://github.com/olifolkerd/tabulator) - for an overkill use of JSON to HTML table generation
+
+
+These are also listed in the `package.json` file and should be installed automatically when using *npm*.
+However, those may require other packages. 
+
+---
+
 
 ### Installation
 
@@ -67,26 +84,15 @@ Easy Installation [**ToDo**]
 npm install mmm-tabulator
 ```
 
-### Dependencies
-
-This module depend on the following *npm* packages:
-
-* [jquery](https://github.com/jquery/jquery)  - is a fast, small, and feature-rich JavaScript library
-* [jquery-ui](https://github.com/jquery/jquery-ui)  - for user interface interactions, effects, widgets, and themes
-* [tabulator](https://github.com/olifolkerd/tabulator) - for an overkill use of JSON to HTML table generation
-
-
-These are also listed in the `package.json` file and should be installed automatically when using *npm*.
-However, those may require other packages. 
-
-
 ### Configuration 
 
 To configure the Tabulator for MM, you need to do the following
 
 * Add the Module to the global MM *config.js* 
-* Edit `node_helper.js` to select the correct JSON file or JSON input file: 
-`const myfile = 'modules/MMM-Tabulator/demo.json';`
+* Edit `node_helper.js` to select the correct JSON file or JSON input file:  
+
+   `const myfile = 'modules/MMM-Tabulator/demo.json';`
+
 * Edit `MMM-Tabulator.js` to:
     - select & configure the table rows you want to show
     - edit the column formatting to be used
@@ -128,7 +134,6 @@ You can change this configuration later when you see that it works.
 
 #### `Tabulator` configuration
 
-
 The main part to configure is found under the `loadTabulator()` function:
 
 ```javascript
@@ -160,10 +165,11 @@ For further details about configuring the many Tabulator options, see:
 * http://tabulator.info/docs/3.4?#css
 * http://tabulator.info/examples/3.4?#theming
 
+---
 
 ### Bugs and ToDo's 
 
-The following issues remain to be solved:
+The following [issues](https://github.com/E3V3A/MMM-Tabulator/issues) need to be solved:
 
 - [ ] Fix `updateInterval` to use seconds (and not millisenconds)
 - [ ] Adjust the Tabulator height according to either: 
@@ -174,6 +180,7 @@ The following issues remain to be solved:
 - [ ] Fix to accept dirty JSON import
 
 Please refer to the issue tracker for details and updates.
+
 
 ### Other MM Modules using *Tabulator*:
 
