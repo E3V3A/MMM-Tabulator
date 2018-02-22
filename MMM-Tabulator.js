@@ -3,8 +3,8 @@
  * FileName:     MMM-Tabulator.js
  * Author:       E:V:A
  * License:      MIT
- * Date:         2018-02-21
- * Version:      1.0.0
+ * Date:         2018-02-22
+ * Version:      1.0.1
  * Description:  A MagicMirror Demo module for using Tabulator
  * Format:       4-space TAB's (no TAB chars), mixed quotes
  *
@@ -83,7 +83,7 @@ Module.register('MMM-Tabulator',{
 
     getTranslations: function() { return false; }, // Nothing to translate
 
-    // This come froms the MM CORE or from other modules
+    // This come from the MM CORE or from other modules
     notificationReceived: function (notification, payload, sender) {
         if (notification === "DOM_OBJECTS_CREATED") {
             // The div with id "flighttable" now exists, so we can load Tabulate.
@@ -137,7 +137,7 @@ Module.register('MMM-Tabulator',{
             //headerSort:false,                   // Disable header sorter
             resizableColumns:false,             // Disable column resize
             responsiveLayout:true,              // Enable responsive layouts
-            placeholder:"No Data Available",    // Display message to user on empty table
+            placeholder:"Waiting for data...",  // Display message to user on empty table
             initialSort:[                       // Define the sort order:
                 {column:"altitude",     dir:"asc"},     // 1'st
                 //{column:"flight",     dir:"desc"},    // 2'nd

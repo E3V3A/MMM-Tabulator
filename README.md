@@ -169,28 +169,21 @@ For further details about configuring the many Tabulator options, see:
 
 ---
 
-#### Bugs and ToDo's
+#### Bugs and Warnings
 
-:warning: If you provide your own JSON data, than what is provided in the `demo.json` file, 
-**it has to be in proper JSON format.** For some reason (bug #5) it does not accept loosely 
-formatted JSON.
+:warning: If you provide your own JSON data, other than what is provided in the `demo.json` 
+file, then **it has to be in proper JSON format.** For some reason the MM socket seem to not 
+accept loosely formatted JSON. There is an extremely simple JSON sanitizer, used (for my own 
+purposes), but it doesn't handle any characters outside `[A-Za-z0-9_\-]`. Not sanitizing your
+JSON data is a security issue that could lead to code injection! Also check if your source
+is using UTF-8 or something else. 
 
-
-The following [issues](https://github.com/E3V3A/MMM-Tabulator/issues) need to be solved:
-
-- [ ] Fix `updateInterval` to use seconds (and not millisenconds)
-- [ ] Adjust the Tabulator height according to either:  
-  1. a config max value of `maxItems` or if less,  
-  2. the number of rows to be shown
-- [ ] Fix table width artifacts
-- [ ] Fix to accept dirty JSON import
-
-Please refer to the issue tracker for details and updates.
+Please refer to the [issue tracker](https://github.com/E3V3A/MMM-Tabulator/issues) for details and updates.
 
 
 #### Other Modules using *Tabulator*:
 
-*AFAIK, No one yet...*
+*None that I know of...*
 
 
 #### Contribution
@@ -200,7 +193,7 @@ For all other or general questions, please refer to the [MagicMirror Forum](http
 
 #### Credits 
 
-Most grateful thanks to [Ray Wojciechowski](https://github.com/raywo) for sharing his   
+Most grateful thanks to [Ray Wojciechowski](https://github.com/raywo) for sharing his 
 module develpment experince and thus helping me solve all my issues. Do check out his 
 many great MMM modules in his repository.
 
@@ -208,4 +201,3 @@ many great MMM modules in his repository.
 #### License 
 
 MIT 
-
