@@ -36,7 +36,7 @@ module.exports = NodeHelper.create({
     readData: function() {
         const myfile = 'modules/MMM-Tabulator/demo.json'; // The demo API use improper JSON
 
-        // Consider using readFileSync()
+        // Consider using readFileSync() and/or using utf8:
         // see: https://stackoverflow.com/questions/10058814/get-data-from-fs-readfile/14078644
         //fs.readFileSync( myfile, 'utf8', (err, data) => {
         //fs.readFile( myfile, 'utf8', (err, data) => {
@@ -68,13 +68,6 @@ module.exports = NodeHelper.create({
 
 });
 
-// This is too beautiful not to use!
-function degToDir(num) {
-    var val = Math.floor((num / 22.5) + 0.5);
-    var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-    return arr[(val % 16)];
-}
-
 // To check if something is JSON
 function isJSON(str) {
     try { return (JSON.parse(str) && !!str); }
@@ -88,7 +81,7 @@ function isAO(val) {
 
 // --------------------------------------------------------------------------
 // What:  A dirt simple JSON cleanup function that also compactifies the data
-// NOTE:  - Only use on flat and trusworthy ASCII JSON data!
+// NOTE:  - Only use on flat and trustworthy ASCII JSON data!
 //        - Cannot handle any characters outside [A-Za-z0-9_\-]. (e.g. UTF-8)
 //        - Using remote data without further sanitation is a security risk!
 // --------------------------------------------------------------------------
