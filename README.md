@@ -120,13 +120,13 @@ Add the module to the modules array in the `config/config.js` file by adding the
 You can change this configuration later when you see that it works.
 
 
-#### Configuration Options [WIP]
+#### Configuration Options
 
 
 | Option         | Default          | Description |
 |:-------------- |:---------------- |:------------| 
 | header         | "Tabulator Demo" | This Module's header text |
-| updateInterval | 5*60*1000        | Module data update in [ms] |
+| updateInterval | `5*60*1000`      | Module data update in [ms] |
 | maxItems*      | 10               | Number of table rows to show |
 | fileUrl*       | "demo.json"      | A local filename or URL to a JSON API |
 
