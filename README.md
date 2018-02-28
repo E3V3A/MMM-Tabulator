@@ -183,7 +183,7 @@ Please refer to the [issue tracker](https://github.com/E3V3A/MMM-Tabulator/issue
 
 #### Other Modules using *Tabulator*:
 
-*None that I know of...*
+* [/MMM-FlightsAbove](https://github.com/E3V3A/MMM-FlightsAbove) - A flight radar showing flight & airplane details for planes above a certain location.
 
 
 #### Contribution
