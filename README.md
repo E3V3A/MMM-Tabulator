@@ -1,13 +1,17 @@
 ## MagicMirror Module: Tabulator
 
-`MMM-Tabulator` is just a demonstration module for using the [Tabulator](http://tabulator.info/) *npm* package on your [MagicMirror](https://github.com/MichMich/MagicMirror). 
-*Tabulator* is a very nice tool for producing dynamic HTML tables from various sources, like JSON and XML etc. 
-However, although very well documented, the [examples](http://tabulator.info/examples/) are very hard to understand and implement in practice, 
-for non-experts. 
 
 | STATUS: | Version | Date | Maintained? |
 |:------- |:------- |:---- |:----------- |
 | Working | `1.0.2` | 2018-03-05 | YES |
+
+
+**What is this module doing?**
+
+`MMM-Tabulator` is just a demonstration module for using the [Tabulator](http://tabulator.info/) *npm* package on your [MagicMirror](https://github.com/MichMich/MagicMirror). 
+*Tabulator* is a very nice tool for producing dynamic HTML tables from various sources, like JSON, CSV and XML etc. 
+However, although very well documented, the [examples](http://tabulator.info/examples/) are very hard to understand and implement in practice, 
+for non-experts. 
 
 
 **Why I should use Tabulator?**
