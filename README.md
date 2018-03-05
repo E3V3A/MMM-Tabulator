@@ -110,8 +110,8 @@ Add the module to the modules array in the `config/config.js` file by adding the
     position: 'top_left',
     config: {
         //fileUrl: "demo.json",     // The local filename or URL to JSON source
-        updateInterval: 5*60*1000,  // [ms] Read the file every 5 min
-        //maxItems: 10,             // Max table rows shown
+        updateInterval: 180,        // [seconds] Read the file every 3 min
+        maxItems: 10,               // Max table rows shown
     }
 },
 ...
@@ -126,8 +126,8 @@ You can change this configuration later when you see that it works.
 | Option         | Default          | Description |
 |:-------------- |:---------------- |:------------| 
 | header         | "Tabulator Demo" | This Module's header text |
-| updateInterval | `5*60*1000`      | Module data update in [ms] |
-| maxItems*      | 10               | Number of table rows to show |
+| updateInterval | 180              | Module data update in [seconds] |
+| maxItems       | 10               | Number of table rows to show |
 | fileUrl*       | "demo.json"      | A local filename or URL to a JSON API |
 
 `*` - **not yet implemented - ToDo!**
@@ -141,7 +141,7 @@ The main part to configure is found under the `loadTabulator()` function:
 ```javascript
 ...
     flightTable.tabulator({
-        height:205,                         // Set height of table, this enables the Virtual DOM and improves render speed
+        height:flightTableHeight,           // Set height of table, this enables the Virtual DOM and improves render speed
         //layout:"fitColumns",                // Fit columns to width of table (optional)
         //headerSort:false,                   // Disable header sorter
         resizableColumns:false,             // Disable column resize

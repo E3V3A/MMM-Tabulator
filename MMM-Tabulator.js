@@ -3,8 +3,8 @@
  * FileName:     MMM-Tabulator.js
  * Author:       E:V:A
  * License:      MIT
- * Date:         2018-02-22
- * Version:      1.0.1
+ * Date:         2018-03-05
+ * Version:      1.0.2
  * Description:  A MagicMirror Demo module for using Tabulator
  * Format:       4-space TAB's (no TAB chars), mixed quotes
  *
@@ -33,7 +33,8 @@ Module.register('MMM-Tabulator',{
 
     defaults: {
         header: "Some Flights", // The module header text, if any
-        updateInterval: 10000   //30*60*1000 // [ms] Read the file every 30 min
+        maxItems: 10,           // MAX number of planes (table rows) to show
+        updateInterval: 180     // [sec] Read the file every 3 min
         //fileUrl: "file:///home/pi/MagicMirror/modules/MMM-backlog/demo.json"
     },
 
@@ -114,6 +115,8 @@ Module.register('MMM-Tabulator',{
             },
         });*/
 
+        let self = this;
+
         Tabulator.extendExtension("format", "formatters", {
             ft2mt:function(cell, formatterParams){              // Feet to Meters
                 return  (0.3048*cell.getValue()).toFixed(0);
@@ -130,8 +133,10 @@ Module.register('MMM-Tabulator',{
         });
 
         let flightTable = $("#flighttable");
+        var flightTableHeight = ( this.config.maxItems * 33 + 33 );   // @12px font-size we have [~33 px/row]
 
         flightTable.tabulator({
+            height:flightTableHeight,           // [px] Set MAX height of table, this enables the Virtual DOM and improves render speed
             height:205,                         // Set height of table, this enables the Virtual DOM and improves render speed
             //layout:"fitColumns",                // Fit columns to width of table (optional)
             //headerSort:false,                   // Disable header sorter

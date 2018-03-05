@@ -3,8 +3,8 @@
  * FileName:     node_helper.js
  * Author:       E:V:A
  * License:      MIT
- * Date:         2018-02-22
- * Version:      1.0.1
+ * Date:         2018-03-05
+ * Version:      1.0.2
  * Description:  A MagicMirror Demo module for using Tabulator
  * Format:       4-space TAB's (no TAB chars), mixed quotes
  *
@@ -62,7 +62,7 @@ module.exports = NodeHelper.create({
             this.readData();
             setInterval(() => {
                 this.readData();
-            }, this.config.updateInterval);
+            }, this.config.updateInterval * 1000);
         }
     }
 
