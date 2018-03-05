@@ -5,6 +5,11 @@
 However, although very well documented, the [examples](http://tabulator.info/examples/) are very hard to understand and implement in practice, 
 for non-experts. 
 
+| STATUS: | Version | Date | Maintained? |
+|:------- |:------- |:---- |:----------- |
+| Working | `1.0.2` | 2018-03-05 | YES |
+
+
 **Why I should use Tabulator?**
 
 * Very flexible for manipulating all aspects of table data
@@ -183,7 +188,7 @@ Please refer to the [issue tracker](https://github.com/E3V3A/MMM-Tabulator/issue
 
 #### Other Modules using *Tabulator*:
 
-* [/MMM-FlightsAbove](https://github.com/E3V3A/MMM-FlightsAbove) - A flight radar showing flight & airplane details for planes above a certain location.
+* [MMM-FlightsAbove](https://github.com/E3V3A/MMM-FlightsAbove) - A flight radar showing flight & airplane details for planes above a certain location.
 
 
 #### Contribution
